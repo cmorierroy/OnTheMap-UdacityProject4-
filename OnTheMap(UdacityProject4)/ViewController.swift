@@ -12,6 +12,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //task no0: setup git
+        
+        //task no1: connect to Udacity API
+        
     }
 
 
