@@ -56,15 +56,39 @@
 		82F1427B253E1737005108C2 /* OnTheMap(UdacityProject4) */ = {
 			isa = PBXGroup;
 			children = (
+				82F14293253E4C74005108C2 /* Controller */,
+				82F14292253E4C6F005108C2 /* View */,
+				82F14291253E4C6A005108C2 /* Model */,
 				82F1427C253E1737005108C2 /* AppDelegate.swift */,
 				82F1427E253E1737005108C2 /* SceneDelegate.swift */,
-				82F14280253E1737005108C2 /* ViewController.swift */,
-				82F14282253E1737005108C2 /* Main.storyboard */,
-				82F14285253E1739005108C2 /* Assets.xcassets */,
-				82F14287253E1739005108C2 /* LaunchScreen.storyboard */,
 				82F1428A253E1739005108C2 /* Info.plist */,
 			);
 			path = "OnTheMap(UdacityProject4)";
+			sourceTree = "<group>";
+		};
+		82F14291253E4C6A005108C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		82F14292253E4C6F005108C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				82F14287253E1739005108C2 /* LaunchScreen.storyboard */,
+				82F14285253E1739005108C2 /* Assets.xcassets */,
+				82F14282253E1737005108C2 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		82F14293253E4C74005108C2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				82F14280253E1737005108C2 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
