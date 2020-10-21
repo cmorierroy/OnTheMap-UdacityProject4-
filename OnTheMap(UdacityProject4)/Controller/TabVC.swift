@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TabVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
