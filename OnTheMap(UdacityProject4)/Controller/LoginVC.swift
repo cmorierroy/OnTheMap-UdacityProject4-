@@ -46,6 +46,8 @@ class LoginVC: UIViewController
         if(success)
         {
             print(UdacityClient.Auth.sessionId)
+            
+            //segue to next view controller
         }
         else
         {
