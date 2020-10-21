@@ -41,6 +41,27 @@ class LoginVC: UIViewController
         signUpButton.isEnabled = !loggingIn
     }
     
+    func handleLoginResponse(success: Bool, error: Error?)
+    {
+        if(success)
+        {
+            print(UdacityClient.Auth.sessionId)
+        }
+        else
+        {
+            setLoggingIn(false)
+            showLoginFailure(message: error?.localizedDescription ?? "")
+        }
+        
+    }
+    
+    func showLoginFailure(message:String)
+    {
+        let alertVC = UIAlertController(title:"Login failed",message: message,preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        show(alertVC, sender: nil)
+    }
+    
 
     @IBAction func signUpTouched(_ sender: Any)
     {
@@ -50,6 +71,7 @@ class LoginVC: UIViewController
     @IBAction func loginTouched(_ sender: Any)
     {
         setLoggingIn(true)
+        UdacityClient.login(username: emailTextField.text ?? "", password: passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
     }
     
     /*

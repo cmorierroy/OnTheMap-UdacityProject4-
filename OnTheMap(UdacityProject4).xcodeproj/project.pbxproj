@@ -15,6 +15,9 @@
 		82F14289253E1739005108C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F14287253E1739005108C2 /* LaunchScreen.storyboard */; };
 		82F14295253F4434005108C2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F14294253F4434005108C2 /* LoginVC.swift */; };
 		82F14298253F529B005108C2 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F14297253F529B005108C2 /* UdacityClient.swift */; };
+		82F1429B253F662D005108C2 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F1429A253F662C005108C2 /* LoginRequest.swift */; };
+		82F142A1253F7275005108C2 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F142A0253F7275005108C2 /* LoginResponse.swift */; };
+		82F142A9253F7EA1005108C2 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F142A8253F7EA1005108C2 /* LoginError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		82F1428A253E1739005108C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82F14294253F4434005108C2 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		82F14297253F529B005108C2 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		82F1429A253F662C005108C2 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		82F142A0253F7275005108C2 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		82F142A8253F7EA1005108C2 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +79,10 @@
 		82F14291253E4C6A005108C2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				82F14297253F529B005108C2 /* UdacityClient.swift */,
+				82F142A7253F7E80005108C2 /* Errors */,
+				82F142A4253F72DC005108C2 /* Udacity Client */,
+				82F142A3253F727C005108C2 /* Udacity Responses */,
+				82F1429E253F66DE005108C2 /* Udacity Requests */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,6 +104,38 @@
 				82F14294253F4434005108C2 /* LoginVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		82F1429E253F66DE005108C2 /* Udacity Requests */ = {
+			isa = PBXGroup;
+			children = (
+				82F1429A253F662C005108C2 /* LoginRequest.swift */,
+			);
+			path = "Udacity Requests";
+			sourceTree = "<group>";
+		};
+		82F142A3253F727C005108C2 /* Udacity Responses */ = {
+			isa = PBXGroup;
+			children = (
+				82F142A0253F7275005108C2 /* LoginResponse.swift */,
+			);
+			path = "Udacity Responses";
+			sourceTree = "<group>";
+		};
+		82F142A4253F72DC005108C2 /* Udacity Client */ = {
+			isa = PBXGroup;
+			children = (
+				82F14297253F529B005108C2 /* UdacityClient.swift */,
+			);
+			path = "Udacity Client";
+			sourceTree = "<group>";
+		};
+		82F142A7253F7E80005108C2 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				82F142A8253F7EA1005108C2 /* LoginError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,10 +209,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				82F14298253F529B005108C2 /* UdacityClient.swift in Sources */,
+				82F1429B253F662D005108C2 /* LoginRequest.swift in Sources */,
 				82F14281253E1737005108C2 /* ViewController.swift in Sources */,
+				82F142A9253F7EA1005108C2 /* LoginError.swift in Sources */,
 				82F1427D253E1737005108C2 /* AppDelegate.swift in Sources */,
 				82F14295253F4434005108C2 /* LoginVC.swift in Sources */,
 				82F1427F253E1737005108C2 /* SceneDelegate.swift in Sources */,
+				82F142A1253F7275005108C2 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
