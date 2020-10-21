@@ -12,8 +12,7 @@ class UdacityClient
     static let apiKey = "ba7a81c889cab6ce0645ae3460f7a1e4"
     
     struct Auth {
-        static var accountId = 0
-        static var requestToken = ""
+        static var userId = ""
         static var sessionId = ""
     }
     
@@ -122,7 +121,10 @@ class UdacityClient
         taskForPOSTRequest(url: Endpoints.login.url, responseType: LoginResponse.self, body: body) { (response, error) in
             if let response = response
             {
+                //save session id and user id
                 Auth.sessionId = response.session.id
+                Auth.userId = response.account.key
+                
                 completion(true, nil)
             }
             else

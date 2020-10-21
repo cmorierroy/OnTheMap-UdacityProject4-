@@ -46,8 +46,10 @@ class LoginVC: UIViewController
         if(success)
         {
             print(UdacityClient.Auth.sessionId)
+            print(UdacityClient.Auth.userId)
             
             //segue to next view controller
+            self.performSegue(withIdentifier: "completeLogin", sender: nil)
         }
         else
         {

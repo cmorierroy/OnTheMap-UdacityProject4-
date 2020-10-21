@@ -92,11 +92,62 @@
                         <outlet property="loginButton" destination="NqK-oR-d7g" id="WBa-CG-7kM"/>
                         <outlet property="passwordTextField" destination="Rto-uD-4kB" id="jal-cc-WuL"/>
                         <outlet property="signUpButton" destination="3Fz-5p-CTx" id="Lsd-je-Ty7"/>
+                        <segue destination="iaH-5c-zPH" kind="presentation" identifier="completeLogin" modalPresentationStyle="fullScreen" id="yi5-zH-rAw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-197.10144927536234" y="93.75"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="XiP-gs-JTD">
+            <objects>
+                <viewController id="HJp-3p-w7f" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jdB-lf-E3B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="NTp-qm-Bt3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="a1f-kK-V2q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mWW-mH-b8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1742" y="563"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="hD0-xX-Tea">
+            <objects>
+                <viewController id="96z-w8-J14" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z7s-hn-6gW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UwK-SW-I3K"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="og5-eQ-bMi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TaJ-r2-ufa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1743" y="-124"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="spX-gl-JrT">
+            <objects>
+                <tabBarController id="iaH-5c-zPH" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="06X-Ey-DZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="96z-w8-J14" kind="relationship" relationship="viewControllers" id="gS0-zu-qqY"/>
+                        <segue destination="HJp-3p-w7f" kind="relationship" relationship="viewControllers" id="kOB-VG-F58"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Xn-Ix-hDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="94"/>
         </scene>
     </scenes>
     <resources>
