@@ -9,8 +9,6 @@ import Foundation
 
 class UdacityClient
 {
-    static let apiKey = "ba7a81c889cab6ce0645ae3460f7a1e4"
-    
     struct Auth {
         static var userId = ""
         static var sessionId = ""
@@ -19,7 +17,6 @@ class UdacityClient
     enum Endpoints
     {
         static let base = "https://onthemap-api.udacity.com/v1"
-        static let apiKeyParam = "?api_key=\(UdacityClient.apiKey)"
         
 //        case getWatchlist
 //        case getFavorites
@@ -29,6 +26,8 @@ class UdacityClient
 //        case getRequestToken
         case login
         case signUp
+        case getStudentLocationList
+        
 //        case createSessionId
 //        case webAuth
 //        case logout
@@ -41,6 +40,7 @@ class UdacityClient
             //case .getWatchlist: return Endpoints.base + "/account/\(Auth.accountId)/watchlist/movies" + Endpoints.apiKeyParam + "&session_id=\(Auth.sessionId)"
             //case .getRequestToken: return Endpoints.base + "/authentication/token/new" + Endpoints.apiKeyParam
             case .login: return Endpoints.base + "/session"
+            case .getStudentLocationList: return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
             //case .createSessionId: return Endpoints.base + "/authentication/session/new" + Endpoints.apiKeyParam
             //case .webAuth: return "https://www.themoviedb.org/authenticate/" + Auth.requestToken + "?redirect_to=themoviemanager:authenticate"
             //case .logout: return Endpoints.base + "/authentication/session" + Endpoints.apiKeyParam
@@ -57,6 +57,48 @@ class UdacityClient
             return URL(string: stringValue)!
         }
     }
+    
+    class func taskForGETRequest<ResponseType:Decodable>(url: URL, response: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionTask
+    {
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else
+            {
+                DispatchQueue.main.async
+                {
+                    completion(nil, error)
+                }
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                DispatchQueue.main.async
+                {
+                    completion(responseObject, nil)
+                }
+            } catch {
+                do
+                    {
+                        let errorResponse = try decoder.decode(LoginError.self, from: data)
+                        DispatchQueue.main.async
+                        {
+                            completion(nil, errorResponse)
+                        }
+                    }
+                catch
+                {
+                    DispatchQueue.main.async
+                    {
+                        completion(nil, error)
+                    }
+                }
+            }
+        }
+        task.resume()
+        
+        return task
+    }
+    
     
     class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void)
     {
@@ -113,6 +155,7 @@ class UdacityClient
         task.resume()
     }
     
+    //POST
     class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void)
     {
         let udacity = ["username":username,"password":password]
@@ -133,4 +176,24 @@ class UdacityClient
             }
         }
     }
+    
+    //GET
+    class func getStudentLocationList(completion: @escaping ([StudentInformation], Error?) -> Void)
+    {
+        _ = taskForGETRequest(url: Endpoints.getStudentLocationList.url, response: StudentLocationResponse.self)
+        {(response, error) in
+            if let response = response
+            {
+                completion(response.results,nil)
+            }
+            else
+            {
+                completion([], nil)
+            }
+        }
+    }
+    
+    //PUSH
+    
+    //DELETE
 }
