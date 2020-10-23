@@ -18,13 +18,16 @@ class LocationTableVC: UIViewController
         {
             super.viewDidLoad()
             
-            UdacityClient.getStudentLocationList() { studentLocations, error in
+            UdacityClient.getStudentLocationList()
+            {
+                studentLocations, error in
                 StudentInformationModel.studentInformationList = studentLocations
                 self.table.reloadData()
             }
         }
         
-        override func viewWillAppear(_ animated: Bool) {
+        override func viewWillAppear(_ animated: Bool)
+        {
             super.viewWillAppear(animated)
             
             table.reloadData()
@@ -40,8 +43,8 @@ class LocationTableVC: UIViewController
         
     }
 
-    extension LocationTableVC: UITableViewDataSource, UITableViewDelegate {
-        
+    extension LocationTableVC: UITableViewDataSource, UITableViewDelegate
+    {
         func numberOfSections(in tableView: UITableView) -> Int
         {
             return 1
@@ -59,6 +62,11 @@ class LocationTableVC: UIViewController
             
             cell.textLabel?.text = studentInformation.firstName + " " + studentInformation.lastName
             
+            cell.textLabel?.text = studentInformation.mediaURL
+            
+            //NEED to find out how to get detail text label
+            //cell.detailTextLabel?.text = studentInformation.mediaURL
+            
             cell.imageView?.image = UIImage(named:"icon_pin")
             
             return cell
@@ -67,8 +75,10 @@ class LocationTableVC: UIViewController
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
         {
             selectedIndex = indexPath.row
-            performSegue(withIdentifier: "showDetail", sender: nil)
-            table.deselectRow(at: indexPath, animated: true)
+            
+            //needs error handling here for faulty URLs
+            let url = URL(string: StudentInformationModel.studentInformationList[indexPath.row].mediaURL)
+            
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         }
-        
     }
