@@ -62,10 +62,8 @@ class LocationTableVC: UIViewController
             
             cell.textLabel?.text = studentInformation.firstName + " " + studentInformation.lastName
             
-            cell.textLabel?.text = studentInformation.mediaURL
-            
-            //NEED to find out how to get detail text label
-            //cell.detailTextLabel?.text = studentInformation.mediaURL
+            //NEED to find out how to get detail text label to show up -- or customize tableview cell
+            cell.detailTextLabel?.text = studentInformation.mediaURL
             
             cell.imageView?.image = UIImage(named:"icon_pin")
             
@@ -78,7 +76,7 @@ class LocationTableVC: UIViewController
             
             //needs error handling here for faulty URLs
             let url = URL(string: StudentInformationModel.studentInformationList[indexPath.row].mediaURL)
-            
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }

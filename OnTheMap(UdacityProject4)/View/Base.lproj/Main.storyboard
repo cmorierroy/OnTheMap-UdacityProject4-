@@ -101,13 +101,16 @@
         <!--On The Map-->
         <scene sceneID="f7m-j9-y7j">
             <objects>
-                <viewController id="Crj-fP-Cx0" sceneMemberID="viewController">
+                <viewController id="Crj-fP-Cx0" customClass="LocationMapVC" customModule="OnTheMap_UdacityProject4_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WD5-QI-wyT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gvy-h0-RIG">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Crj-fP-Cx0" id="0sz-Le-f8k"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iql-Ul-i7d"/>
@@ -130,6 +133,9 @@
                             <barButtonItem image="icon_refresh" id="L5z-v2-oDf"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="gvy-h0-RIG" id="9Fz-bb-vAB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgi-aV-j9J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -336,7 +342,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="WeN-B9-eva"/>
-        <segue reference="fao-iF-EPL"/>
+        <segue reference="5bW-Ff-Sm2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_addpin" width="24" height="24"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		821BAA7B254287AC00D334CB /* LocationMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BAA7A254287AB00D334CB /* LocationMapVC.swift */; };
 		82F1427D253E1737005108C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F1427C253E1737005108C2 /* AppDelegate.swift */; };
 		82F1427F253E1737005108C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F1427E253E1737005108C2 /* SceneDelegate.swift */; };
 		82F14281253E1737005108C2 /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F14280253E1737005108C2 /* TabVC.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		821BAA7A254287AB00D334CB /* LocationMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapVC.swift; sourceTree = "<group>"; };
 		82F14279253E1737005108C2 /* OnTheMap(UdacityProject4).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OnTheMap(UdacityProject4).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F1427C253E1737005108C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82F1427E253E1737005108C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				82F14280253E1737005108C2 /* TabVC.swift */,
 				82F14294253F4434005108C2 /* LoginVC.swift */,
 				82F142AD2540FFB7005108C2 /* LocationTableVC.swift */,
+				821BAA7A254287AB00D334CB /* LocationMapVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				82F142B5254103D3005108C2 /* LocationModel.swift in Sources */,
 				82F1427D253E1737005108C2 /* AppDelegate.swift in Sources */,
 				82F142B8254105BA005108C2 /* StudentLocationResponse.swift in Sources */,
+				821BAA7B254287AC00D334CB /* LocationMapVC.swift in Sources */,
 				82F14295253F4434005108C2 /* LoginVC.swift in Sources */,
 				82F1427F253E1737005108C2 /* SceneDelegate.swift in Sources */,
 				82F142B225410148005108C2 /* StudentInformation.swift in Sources */,
