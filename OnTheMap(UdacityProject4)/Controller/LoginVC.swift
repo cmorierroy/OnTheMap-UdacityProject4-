@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginVC: UIViewController
+class LoginVC: OTMViewController
 {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -18,10 +18,8 @@ class LoginVC: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
         //round out the login button corners
         loginButton.layer.cornerRadius = 5
-        // Do any additional setup after loading the view.
     }
     
     func setLoggingIn(_ loggingIn: Bool)
@@ -44,32 +42,36 @@ class LoginVC: UIViewController
     func handleLoginResponse(success: Bool, error: Error?)
     {
         if(success)
-        {
-            print(UdacityClient.Auth.sessionId)
-            print(UdacityClient.Auth.userId)
-            
-            //segue to next view controller
-            self.performSegue(withIdentifier: "completeLogin", sender: nil)
-            setLoggingIn(false)
+        {            
+            UdacityClient.getUserInformation(completion: handleUserInfoResponse(success:error:))
         }
         else
         {
             setLoggingIn(false)
-            showLoginFailure(message: error?.localizedDescription ?? "")
+            displayAlert(title: "Login Failed.", message: error?.localizedDescription ?? "")
+            //showLoginFailure(message: error?.localizedDescription ?? "")
         }
     }
     
-    func showLoginFailure(message:String)
+    func handleUserInfoResponse(success:Bool, error: Error?)
     {
-        let alertVC = UIAlertController(title:"Login failed",message: message,preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+        if(success)
+        {
+            //segue to next view controller
+            setLoggingIn(false)
+            self.dismiss(animated: false, completion: nil)
+            self.performSegue(withIdentifier: "completeLogin", sender: nil)
+        }
+        else
+        {
+            setLoggingIn(false)
+            displayAlert(title: "Login Failed.", message: error?.localizedDescription ?? "")
+        }
     }
-    
 
     @IBAction func signUpTouched(_ sender: Any)
     {
-        UIApplication.shared.open(UdacityClient.Endpoints.signUp.url, options: [:], completionHandler: nil)
+        openURL(url: UdacityClient.Endpoints.signUp.url)
     }
 
     @IBAction func loginTouched(_ sender: Any)

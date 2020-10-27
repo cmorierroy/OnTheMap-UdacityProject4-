@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class LocationMapVC : UIViewController
+class LocationMapVC : OTMViewController
 {
     @IBOutlet weak var mapView: MKMapView!
     
@@ -23,7 +23,7 @@ class LocationMapVC : UIViewController
     {
         super.viewWillAppear(animated)
         
-        self.refreshLocations()
+        refreshLocations()
     }
     
     func refreshLocations()
@@ -55,45 +55,6 @@ class LocationMapVC : UIViewController
     
 }
 
-extension LocationMapVC : MKMapViewDelegate
-{
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
-    {
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotation")
-        
-        if annotationView == nil
-        {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "annotation")
-        }
-        
-        annotationView?.image = UIImage(named:"icon_pin")
-        
-        //UIButton rightButton = UIButton(;
-        //[rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
-        //customPinView.rightCalloutAccessoryView = rightButton;
-        annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        
-        annotationView?.canShowCallout = true
-        
-        return annotationView
-    }
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl)
-    {
-        let url:URL?
-        
-        //MARK: Needs error handling for faulty URLs
-        if let subtitle = view.annotation?.subtitle!
-        {
-            url = URL(string: subtitle)
-        }
-        else
-        {
-            return
-        }
-        
-        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-    }
-}
+
 
 
