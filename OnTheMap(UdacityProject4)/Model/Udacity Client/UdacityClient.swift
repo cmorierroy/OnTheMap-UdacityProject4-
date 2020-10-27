@@ -299,7 +299,7 @@ class UdacityClient
             }
             else
             {
-                completion([], nil)
+                completion([], error)
             }
         }
     }

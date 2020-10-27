@@ -28,15 +28,21 @@ class LocationMapVC : OTMViewController
     
     func refreshLocations()
     {
-        UdacityClient.getStudentLocationList()
+        UdacityClient.getStudentLocationList(completion: handleGetStudentInformation(studentLocations:error:))
+    }
+    
+    func handleGetStudentInformation(studentLocations: [StudentInformation], error: Error?)
+    {
+        if error != nil
         {
-            studentLocations, error in
+            displayAlert(title: "Error", message: error?.localizedDescription ?? "")
+        }
+        else
+        {
             StudentInformationModel.studentInformationList = studentLocations
-            
             self.loadLocationsOnMap()
         }
     }
-    
     
     //Load pins
     func loadLocationsOnMap()
