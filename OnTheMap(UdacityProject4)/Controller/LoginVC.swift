@@ -50,13 +50,13 @@ class LoginVC: UIViewController
             
             //segue to next view controller
             self.performSegue(withIdentifier: "completeLogin", sender: nil)
+            setLoggingIn(false)
         }
         else
         {
             setLoggingIn(false)
             showLoginFailure(message: error?.localizedDescription ?? "")
         }
-        
     }
     
     func showLoginFailure(message:String)
@@ -77,14 +77,4 @@ class LoginVC: UIViewController
         setLoggingIn(true)
         UdacityClient.login(username: emailTextField.text ?? "", password: passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }

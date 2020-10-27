@@ -32,15 +32,6 @@ class LocationTableVC: UIViewController
             
             table.reloadData()
         }
-        
-//        override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-//        {
-//            if segue.identifier == "showDetail" {
-//                let detailVC = segue.destination as! MovieDetailViewController
-//                detailVC.movie = MovieModel.watchlist[selectedIndex]
-//            }
-//        }
-        
     }
 
     extension LocationTableVC: UITableViewDataSource, UITableViewDelegate

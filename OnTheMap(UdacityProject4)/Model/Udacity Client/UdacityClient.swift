@@ -27,6 +27,7 @@ class UdacityClient
         case login
         case signUp
         case getStudentLocationList
+        case logout
         
 //        case createSessionId
 //        case webAuth
@@ -41,6 +42,7 @@ class UdacityClient
             //case .getRequestToken: return Endpoints.base + "/authentication/token/new" + Endpoints.apiKeyParam
             case .login: return Endpoints.base + "/session"
             case .getStudentLocationList: return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
+            case .logout: return Endpoints.base + "/session"
             //case .createSessionId: return Endpoints.base + "/authentication/session/new" + Endpoints.apiKeyParam
             //case .webAuth: return "https://www.themoviedb.org/authenticate/" + Auth.requestToken + "?redirect_to=themoviemanager:authenticate"
             //case .logout: return Endpoints.base + "/authentication/session" + Endpoints.apiKeyParam
@@ -155,6 +157,65 @@ class UdacityClient
         task.resume()
     }
     
+    class func taskForDELETERequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void)
+    {
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+    
+        for cookie in sharedCookieStorage.cookies!
+        {
+          if cookie.name == "XSRF-TOKEN"
+          {
+            xsrfCookie = cookie
+          }
+        }
+    
+        if let xsrfCookie = xsrfCookie
+        {
+          request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+    
+        let session = URLSession.shared
+        let task = session.dataTask(with: request)
+        { data, response, error in
+          if error != nil
+          {
+            DispatchQueue.main.async
+            {
+                completion(nil, error)
+            }
+            return
+          }
+            
+          //completion()
+            
+          let range = 5..<data!.count
+          let newData = data?.subdata(in: range)
+
+          let decoder = JSONDecoder()
+            do
+          {
+            let responseObject = try decoder.decode(ResponseType.self, from: newData!)
+            DispatchQueue.main.async
+            {
+                completion(responseObject, nil)
+            }
+          }
+            catch
+            {
+                DispatchQueue.main.async
+                {
+                    print(error)
+                    completion(nil, error)
+                }
+            }
+        }
+        task.resume()
+    }
+    
     //POST
     class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void)
     {
@@ -168,6 +229,24 @@ class UdacityClient
                 Auth.sessionId = response.session.id
                 Auth.userId = response.account.key
                 
+                completion(true, nil)
+            }
+            else
+            {
+                completion(false, error)
+            }
+        }
+    }
+    
+    //DELETE
+    class func logout(completion: @escaping (Bool, Error?) -> Void)
+    {
+        taskForDELETERequest(url: Endpoints.logout.url, responseType: LogoutResponse.self) { (response, error) in
+            if let response = response
+            {
+                //save session id and user id
+                Auth.sessionId = ""
+                Auth.userId = ""
                 completion(true, nil)
             }
             else

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		821BAA7B254287AC00D334CB /* LocationMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BAA7A254287AB00D334CB /* LocationMapVC.swift */; };
+		82DAC12025477327009F9D0F /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAC11F25477327009F9D0F /* LogoutResponse.swift */; };
+		82DAC1232547A50B009F9D0F /* InformationPostingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DAC1222547A50B009F9D0F /* InformationPostingVC.swift */; };
 		82F1427D253E1737005108C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F1427C253E1737005108C2 /* AppDelegate.swift */; };
 		82F1427F253E1737005108C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F1427E253E1737005108C2 /* SceneDelegate.swift */; };
 		82F14281253E1737005108C2 /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F14280253E1737005108C2 /* TabVC.swift */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		821BAA7A254287AB00D334CB /* LocationMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapVC.swift; sourceTree = "<group>"; };
+		82DAC11F25477327009F9D0F /* LogoutResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
+		82DAC1222547A50B009F9D0F /* InformationPostingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationPostingVC.swift; sourceTree = "<group>"; };
 		82F14279253E1737005108C2 /* OnTheMap(UdacityProject4).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OnTheMap(UdacityProject4).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82F1427C253E1737005108C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82F1427E253E1737005108C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,10 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				82F142B025410093005108C2 /* Data */,
-				82F142A7253F7E80005108C2 /* Errors */,
 				82F142A4253F72DC005108C2 /* Udacity Client */,
-				82F142A3253F727C005108C2 /* Udacity Responses */,
-				82F1429E253F66DE005108C2 /* Udacity Requests */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,6 +116,7 @@
 				82F14294253F4434005108C2 /* LoginVC.swift */,
 				82F142AD2540FFB7005108C2 /* LocationTableVC.swift */,
 				821BAA7A254287AB00D334CB /* LocationMapVC.swift */,
+				82DAC1222547A50B009F9D0F /* InformationPostingVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -132,6 +134,7 @@
 			children = (
 				82F142A0253F7275005108C2 /* LoginResponse.swift */,
 				82F142B7254105BA005108C2 /* StudentLocationResponse.swift */,
+				82DAC11F25477327009F9D0F /* LogoutResponse.swift */,
 			);
 			path = "Udacity Responses";
 			sourceTree = "<group>";
@@ -140,6 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				82F14297253F529B005108C2 /* UdacityClient.swift */,
+				82F142A7253F7E80005108C2 /* Errors */,
+				82F1429E253F66DE005108C2 /* Udacity Requests */,
+				82F142A3253F727C005108C2 /* Udacity Responses */,
 			);
 			path = "Udacity Client";
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 				82F1429B253F662D005108C2 /* LoginRequest.swift in Sources */,
 				82F14281253E1737005108C2 /* TabVC.swift in Sources */,
 				82F142A9253F7EA1005108C2 /* LoginError.swift in Sources */,
+				82DAC12025477327009F9D0F /* LogoutResponse.swift in Sources */,
 				82F142AE2540FFB7005108C2 /* LocationTableVC.swift in Sources */,
 				82F142B5254103D3005108C2 /* LocationModel.swift in Sources */,
 				82F1427D253E1737005108C2 /* AppDelegate.swift in Sources */,
@@ -244,6 +251,7 @@
 				82F1427F253E1737005108C2 /* SceneDelegate.swift in Sources */,
 				82F142B225410148005108C2 /* StudentInformation.swift in Sources */,
 				82F142A1253F7275005108C2 /* LoginResponse.swift in Sources */,
+				82DAC1232547A50B009F9D0F /* InformationPostingVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

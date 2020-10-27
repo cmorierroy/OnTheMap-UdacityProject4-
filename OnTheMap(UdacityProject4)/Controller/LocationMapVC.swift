@@ -16,6 +16,18 @@ class LocationMapVC : UIViewController
     {
         super.viewDidLoad()
         
+        refreshLocations()
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        
+        self.refreshLocations()
+    }
+    
+    func refreshLocations()
+    {
         UdacityClient.getStudentLocationList()
         {
             studentLocations, error in
@@ -25,12 +37,6 @@ class LocationMapVC : UIViewController
         }
     }
     
-    override func viewWillAppear(_ animated: Bool)
-    {
-        super.viewWillAppear(animated)
-        
-        self.loadLocationsOnMap()
-    }
     
     //Load pins
     func loadLocationsOnMap()
@@ -46,6 +52,7 @@ class LocationMapVC : UIViewController
             mapView.addAnnotation(dropPin)
         }
     }
+    
 }
 
 extension LocationMapVC : MKMapViewDelegate
