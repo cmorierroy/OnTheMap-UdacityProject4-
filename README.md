@@ -9,3 +9,6 @@ Clone the github repository and open the project in XCode (It was written with X
 You can run the app on Simulator or on your phone (with a USB cord).
 
 To understand the code, you can start by looking at "LoginVC.swift". <br> This is the first view controller to be shown when the app starts.
+
+## Photo
+![Simulator Screen Shot - iPhone 11 - 2020-10-28 at 00 02 28](https://user-images.githubusercontent.com/16982565/97393354-17a68880-18b1-11eb-8691-73d4246c4faf.png)
